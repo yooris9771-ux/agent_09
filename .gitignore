@@ -1,1 +1,4 @@
 .claude/settings.local.json
+
+# Word 임시 잠금 파일
+~$*
