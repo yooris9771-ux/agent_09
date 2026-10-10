@@ -18,6 +18,10 @@
 ```
 agent_09/
 ├── CLAUDE.md                     # 프로젝트 규칙 (이 파일)
+├── .claude/skills/mk-ppt/        # 프로젝트 전용 PPT 제작 스킬 (python-pptx)
+│   ├── SKILL.md
+│   ├── references/api.md         # 기능별 코드 레퍼런스
+│   └── scripts/                  # inspect_pptx.py, slide_ops.py
 ├── research/<주제>/<회차>/        # 자료조사 결과 .md
 │   └── ai-development/
 │       ├── round1/               # 1차 조사 (01~03)
@@ -26,8 +30,12 @@ agent_09/
 │   └── ai-development/
 │       ├── AI_발전_보고서_1차.docx
 │       └── AI_발전_보고서_2차_20261004.docx
+├── ppt/<주제>/                    # 발표자료 .pptx (mk-ppt 스킬로 생성)
+│   └── anthropic/
+│       └── 클로드_회사소개_1차_20261010.pptx
 └── translate/                    # .md 번역본 (원본과 동일한 상대 경로)
     ├── CLAUDE.md
+    ├── .claude/skills/mk-ppt/    # SKILL.md, references/api.md
     └── research/ai-development/round1/, round2/
 ```
 
@@ -37,5 +45,6 @@ agent_09/
 - 파일 이름은 한글을 써도 되며, 같은 회차 안에서 `01_`, `02_`처럼 번호를 붙여 순서를 표시한다.
 - 자료조사 결과: `research/<주제>/round<N>/NN_<제목>.md`
 - 보고서: `report/<주제>/<보고서명>_<N>차[_YYYYMMDD].docx`
+- 발표자료: `ppt/<주제>/<발표자료명>_<N>차[_YYYYMMDD].pptx` (`mk-ppt` 스킬로 생성)
 - 같은 주제를 다시 조사할 때는 기존 파일을 덮어쓰지 않고 새 회차 폴더(`round<N+1>`)를 만든다.
 - Word 임시 잠금 파일(`~$*`)은 `.gitignore`로 제외한다.

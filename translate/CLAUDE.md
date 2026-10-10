@@ -18,6 +18,10 @@ Rules:
 ```
 agent_09/
 ├── CLAUDE.md                     # Project rules (this file)
+├── .claude/skills/mk-ppt/        # Project-only PPT creation skill (python-pptx)
+│   ├── SKILL.md
+│   ├── references/api.md         # Code reference by feature
+│   └── scripts/                  # inspect_pptx.py, slide_ops.py
 ├── research/<topic>/<round>/     # Research result .md files
 │   └── ai-development/
 │       ├── round1/               # Round 1 research (01–03)
@@ -26,8 +30,12 @@ agent_09/
 │   └── ai-development/
 │       ├── AI_발전_보고서_1차.docx
 │       └── AI_발전_보고서_2차_20261004.docx
+├── ppt/<topic>/                  # Presentation .pptx files (created by the mk-ppt skill)
+│   └── anthropic/
+│       └── 클로드_회사소개_1차_20261010.pptx
 └── translate/                    # .md translations (same relative paths as the originals)
     ├── CLAUDE.md
+    ├── .claude/skills/mk-ppt/    # SKILL.md, references/api.md
     └── research/ai-development/round1/, round2/
 ```
 
@@ -37,5 +45,6 @@ agent_09/
 - File names may be in Korean; within the same round, prefix them with numbers such as `01_`, `02_` to show order.
 - Research results: `research/<topic>/round<N>/NN_<title>.md`
 - Reports: `report/<topic>/<report name>_<N>차[_YYYYMMDD].docx` (차 = round)
+- Presentations: `ppt/<topic>/<presentation name>_<N>차[_YYYYMMDD].pptx` (created with the `mk-ppt` skill)
 - When researching the same topic again, do not overwrite existing files; create a new round folder (`round<N+1>`).
 - Exclude Word temporary lock files (`~$*`) via `.gitignore`.
